@@ -7,252 +7,73 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  --blue:      #2C6AC7;
-  --blue-dark: #1f50a0;
-  --blue-pale: #c5d9f5;
-  --blue-ghost:#eaf1fb;
-  --ink:       #0d1b2e;
-  --ink-mid:   #253650;
-  --ink-soft:  #667b99;
-  --border:    #e2e8f0;
-  --bg:        #ffffff;
-  --bg-alt:    #f8fafc;
-}
-
+:root{--blue:#2C6AC7;--blue-dark:#1f50a0;--blue-pale:#c5d9f5;--blue-ghost:#eaf1fb;--ink:#0d1b2e;--ink-mid:#253650;--ink-soft:#667b99;--border:#e2e8f0;--bg:#ffffff;--bg-alt:#f8fafc}
 body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-
-/* ── HERO ── */
-.hero{
-  padding:80px 40px 72px;
-  text-align:center;
-  background:var(--bg);
-  border-bottom:1px solid var(--border);
-  position:relative;
-  overflow:hidden;
-}
-.hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:radial-gradient(circle,#CBD5E1 1px,transparent 1px);
-  background-size:28px 28px;
-  opacity:0.35;
-  pointer-events:none;
-}
-.hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:7px;
-  background:var(--blue-ghost);color:var(--blue);
-  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  padding:5px 14px;border-radius:100px;border:1px solid var(--blue-pale);
-  margin-bottom:20px;
-}
+.hero{padding:80px 40px 72px;text-align:center;background:var(--bg);border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,#CBD5E1 1px,transparent 1px);background-size:28px 28px;opacity:0.35;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--blue-ghost);color:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:100px;border:1px solid var(--blue-pale);margin-bottom:20px}
 .hero-eyebrow span{width:5px;height:5px;background:var(--blue);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
-.hero h1{
-  font-size:clamp(2rem,4.5vw,3.2rem);
-  font-weight:800;letter-spacing:-.035em;line-height:1.15;
-  color:var(--ink);margin-bottom:18px;
-}
+.hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.035em;line-height:1.15;color:var(--ink);margin-bottom:18px}
 .hero h1 em{font-style:normal;color:var(--blue)}
-.hero p{
-  font-size:1rem;color:var(--ink-soft);line-height:1.78;
-  max-width:560px;margin:0 auto 32px;font-weight:400;
-}
-.hero-cta{
-  display:inline-flex;align-items:center;gap:10px;
-  background:var(--blue);color:#fff;
-  padding:12px 28px;border-radius:6px;
-  font-size:.875rem;font-weight:600;text-decoration:none;
-  transition:all .2s ease;
-}
+.hero p{font-size:1rem;color:var(--ink-soft);line-height:1.78;max-width:560px;margin:0 auto 32px;font-weight:400}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;padding:12px 28px;border-radius:6px;font-size:.875rem;font-weight:600;text-decoration:none;transition:all .2s ease}
 .hero-cta:hover{background:var(--blue-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(44,106,199,.3)}
-
-/* ── SECTION TABS ── */
-.tabs-wrap{
-  position:sticky;top:0;z-index:100;
-  background:rgba(255,255,255,.95);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--border);
-  padding:0 40px;
-  overflow-x:auto;
-  scrollbar-width:none;
-}
+.tabs-wrap{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 40px;overflow-x:auto;scrollbar-width:none}
 .tabs-wrap::-webkit-scrollbar{display:none}
-.tabs{
-  display:flex;gap:0;
-  max-width:1100px;margin:0 auto;
-  white-space:nowrap;
-}
-.tab{
-  padding:16px 20px;
-  font-size:.82rem;font-weight:600;
-  color:var(--ink-soft);
-  text-decoration:none;
-  border-bottom:2px solid transparent;
-  transition:all .2s;
-  cursor:pointer;
-  display:flex;align-items:center;gap:7px;
-}
+.tabs{display:flex;gap:0;max-width:1100px;margin:0 auto;white-space:nowrap}
+.tab{padding:16px 20px;font-size:.82rem;font-weight:600;color:var(--ink-soft);text-decoration:none;border-bottom:2px solid transparent;transition:all .2s;cursor:pointer;display:flex;align-items:center;gap:7px}
 .tab:hover{color:var(--blue)}
 .tab.active{color:var(--blue);border-bottom-color:var(--blue)}
 .tab-icon{font-size:.95rem}
-
-/* ── SECTIONS ── */
-.section{
-  padding:80px 40px;
-  border-bottom:1px solid var(--border);
-}
+.section{padding:80px 40px;border-bottom:1px solid var(--border)}
 .section:nth-child(even){background:var(--bg-alt)}
 .section-inner{max-width:1100px;margin:0 auto}
-
-.section-header{margin-bottom:52px}
-.section-tag{
-  display:inline-flex;align-items:center;gap:7px;
-  background:var(--blue-ghost);color:var(--blue);
-  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  padding:4px 12px;border-radius:100px;border:1px solid var(--blue-pale);
-  margin-bottom:14px;
-}
-.section-header h2{
-  font-size:clamp(1.7rem,2.8vw,2.3rem);
-  font-weight:800;letter-spacing:-.03em;line-height:1.18;
-  color:var(--ink);margin-bottom:12px;
-}
+.section-header{margin-bottom:52px;text-align:center}
+.section-tag{display:inline-flex;align-items:center;gap:7px;background:var(--blue-ghost);color:var(--blue);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:100px;border:1px solid var(--blue-pale);margin-bottom:14px}
+.section-header h2{font-size:clamp(1.7rem,2.8vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.18;color:var(--ink);margin-bottom:12px}
 .section-header h2 em{font-style:normal;color:var(--blue)}
-.section-header p{
-  font-size:.97rem;color:var(--ink-soft);
-  line-height:1.75;max-width:600px;
-}
-
-/* Scenario card (real-life story) */
-.scenario{
-  background:var(--blue);
-  border-radius:16px;
-  padding:28px 32px;
-  margin-bottom:40px;
-  position:relative;
-  overflow:hidden;
-}
-.scenario::before{
-  content:'';
-  position:absolute;top:-40px;right:-40px;
-  width:180px;height:180px;
-  border-radius:50%;
-  background:rgba(255,255,255,.06);
-  pointer-events:none;
-}
-.scenario-label{
-  font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.55);margin-bottom:10px;
-}
-.scenario p{
-  font-size:.97rem;color:rgba(255,255,255,.9);
-  line-height:1.72;font-style:italic;
-}
+.section-header p{font-size:.97rem;color:var(--ink-soft);line-height:1.75;max-width:600px;margin:0 auto}
+.scenario{background:var(--blue);border-radius:16px;padding:28px 32px;margin-bottom:40px;position:relative;overflow:hidden}
+.scenario::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
+.scenario-label{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px}
+.scenario p{font-size:.97rem;color:rgba(255,255,255,.9);line-height:1.72;font-style:italic}
 .scenario p strong{color:#fff;font-style:normal}
-
-/* Before/After */
-.before-after{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:16px;margin-bottom:40px;
-}
-.ba-card{
-  border-radius:12px;padding:24px 26px;
-  border:1px solid var(--border);
-}
+.before-after{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:40px}
+.ba-card{border-radius:12px;padding:24px 26px;border:1px solid var(--border)}
 .ba-card.before{background:#fff9f9;border-color:#fecaca}
 .ba-card.after{background:#f0fdf4;border-color:#bbf7d0}
-.ba-label{
-  font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  margin-bottom:10px;display:flex;align-items:center;gap:6px;
-}
+.ba-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
 .ba-card.before .ba-label{color:#ef4444}
 .ba-card.after .ba-label{color:#16a34a}
 .ba-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.ba-card ul li{
-  font-size:.875rem;color:var(--ink-soft);
-  line-height:1.6;padding-left:18px;position:relative;
-}
-.ba-card ul li::before{
-  content:'';position:absolute;left:0;top:8px;
-  width:6px;height:6px;border-radius:50%;
-}
+.ba-card ul li{font-size:.875rem;color:var(--ink-soft);line-height:1.6;padding-left:18px;position:relative}
+.ba-card ul li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%}
 .ba-card.before ul li::before{background:#fca5a5}
 .ba-card.after ul li::before{background:#86efac}
-
-/* What Blink does — checklist */
 .what-blink{margin-bottom:40px}
-.what-blink h3{
-  font-size:1rem;font-weight:700;color:var(--ink);
-  margin-bottom:16px;letter-spacing:-.01em;
-}
-.checklist{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:10px;list-style:none;
-}
-.checklist li{
-  display:flex;align-items:flex-start;gap:10px;
-  font-size:.875rem;color:var(--ink-soft);line-height:1.6;
-  background:var(--bg-ghost, #fff);
-  border:1px solid var(--border);
-  border-radius:8px;padding:12px 14px;
-}
-.checklist li .check{
-  flex-shrink:0;width:18px;height:18px;
-  background:var(--blue-ghost);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  margin-top:1px;
-}
+.what-blink h3{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:16px;letter-spacing:-.01em}
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:10px;list-style:none}
+.checklist li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--ink-soft);line-height:1.6;background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+.checklist li .check{flex-shrink:0;width:18px;height:18px;background:var(--blue-ghost);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .checklist li .check svg{width:10px;height:10px}
-
-/* CTA strip */
-.section-cta{
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--blue-ghost);border:1px solid var(--blue-pale);
-  border-radius:12px;padding:20px 24px;gap:16px;flex-wrap:wrap;
-}
+.section-cta{display:flex;align-items:center;justify-content:space-between;background:var(--blue-ghost);border:1px solid var(--blue-pale);border-radius:12px;padding:20px 24px;gap:16px;flex-wrap:wrap}
 .section-cta p{font-size:.9rem;color:var(--ink-mid);font-weight:500}
-.section-cta a{
-  display:inline-flex;align-items:center;gap:6px;
-  background:var(--blue);color:#fff;
-  padding:10px 22px;border-radius:6px;
-  font-size:.825rem;font-weight:600;text-decoration:none;
-  white-space:nowrap;transition:all .2s;
-}
+.section-cta a{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;padding:10px 22px;border-radius:6px;font-size:.825rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:all .2s}
 .section-cta a:hover{background:var(--blue-dark);transform:translateY(-1px)}
-
-/* ── CLOSING CTA ── */
-.closing{
-  padding:96px 40px;
-  background:var(--blue);
-  text-align:center;
-  position:relative;overflow:hidden;
-}
-.closing::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 65% 40%,rgba(255,255,255,.07) 0%,transparent 65%);
-  pointer-events:none;
-}
+.closing{padding:96px 40px;background:var(--blue);text-align:center;position:relative;overflow:hidden}
+.closing::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 40%,rgba(255,255,255,.07) 0%,transparent 65%);pointer-events:none}
 .closing-inner{position:relative;z-index:1;max-width:560px;margin:0 auto}
-.closing h2{
-  font-size:clamp(1.8rem,3.5vw,2.8rem);
-  font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:14px;
-}
+.closing h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;color:#fff;letter-spacing:-.03em;margin-bottom:14px}
 .closing p{color:rgba(255,255,255,.72);font-size:.97rem;line-height:1.75;margin-bottom:36px}
 .closing-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .btn-white{background:#fff;color:var(--blue);padding:12px 28px;border-radius:6px;font-size:.875rem;font-weight:600;text-decoration:none;transition:all .2s}
 .btn-white:hover{background:#f1f5f9;transform:translateY(-1px)}
 .btn-ghost-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);padding:12px 28px;border-radius:6px;font-size:.875rem;font-weight:600;text-decoration:none;transition:all .2s}
 .btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
-
-/* ── ANIMATIONS ── */
 .fade-up{opacity:0;transform:translateY(20px);animation:fadeUp .65s cubic-bezier(.22,1,.36,1) forwards}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-
-/* ── RESPONSIVE ── */
 @media(max-width:760px){
   .hero{padding:60px 20px 52px}
   .tabs-wrap{padding:0 20px}
@@ -265,7 +86,6 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner fade-up">
     <div class="hero-eyebrow"><span></span> Our Approach</div>
@@ -275,7 +95,6 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
   </div>
 </section>
 
-<!-- STICKY TABS -->
 <nav class="tabs-wrap">
   <div class="tabs">
     <a class="tab active" href="#newcomers"><span class="tab-icon">🌍</span> Newcomers</a>
@@ -288,7 +107,7 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
   </div>
 </nav>
 
-<!-- NEWCOMERS -->
+
 <section class="section" id="newcomers">
   <div class="section-inner">
     <div class="section-header">
@@ -296,53 +115,30 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
       <h2>You arrived in Canada.<br/><em>Now what?</em></h2>
       <p>Moving to a new country means navigating systems you've never encountered before — healthcare, banking, housing, government IDs, and more. Blink gives you a clear map so you're not figuring it out alone.</p>
     </div>
-
     <div class="scenario">
       <div class="scenario-label">Real situation</div>
       <p>You just landed in Canada on a work permit. You need to open a bank account, get a SIN number, find a family doctor, and figure out provincial health coverage — but nobody told you what order to do any of this in, or what you actually need. <strong>Blink walks you through the entire sequence, step by step.</strong></p>
     </div>
-
     <div class="before-after">
       <div class="ba-card before">
         <div class="ba-label">✕ Without Blink</div>
-        <ul>
-          <li>Hours lost searching across government websites</li>
-          <li>Wrong forms, wrong offices, wasted trips</li>
-          <li>Not knowing what you're entitled to</li>
-          <li>Feeling overwhelmed and behind</li>
-        </ul>
+        <ul><li>Hours lost searching across government websites</li><li>Wrong forms, wrong offices, wasted trips</li><li>Not knowing what you're entitled to</li><li>Feeling overwhelmed and behind</li></ul>
       </div>
       <div class="ba-card after">
         <div class="ba-label">✓ With Blink</div>
-        <ul>
-          <li>Clear priority order for your first weeks</li>
-          <li>Exactly which offices, forms, and documents you need</li>
-          <li>Know your rights and entitlements from day one</li>
-          <li>Confidence to move forward without second-guessing</li>
-        </ul>
+        <ul><li>Clear priority order for your first weeks</li><li>Exactly which offices, forms, and documents you need</li><li>Know your rights and entitlements from day one</li><li>Confidence to move forward without second-guessing</li></ul>
       </div>
     </div>
-
     <div class="what-blink">
       <h3>What Blink does for you</h3>
-      <ul class="checklist">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SIN, health card & government ID navigation</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Banking setup & credit building guidance</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Healthcare registration & finding a family doctor</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Housing search strategy & tenant rights</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Understanding your immigration status & next steps</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Community resources & settlement services</li>
-      </ul>
+      <ul class="checklist"><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SIN, health card & government ID navigation</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Banking setup & credit building guidance</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Healthcare registration & finding a family doctor</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Housing search strategy & tenant rights</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Understanding your immigration status & next steps</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Community resources & settlement services</li></ul>
     </div>
-
     <div class="section-cta">
       <p>Ready to get a clear picture of your next steps in Canada?</p>
       <a href="https://calendar.app.google/meFkCGhQv7YDMpo87/">Book a Free Consultation →</a>
     </div>
   </div>
 </section>
-
-<!-- STUDENTS -->
 <section class="section" id="students">
   <div class="section-inner">
     <div class="section-header">
@@ -350,53 +146,30 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
       <h2>Studying in Canada is more than<br/><em>just attending class.</em></h2>
       <p>International and domestic students face a unique maze — co-op permits, part-time work rules, post-graduation options, and the gap between student life and the real world. Blink helps you plan ahead.</p>
     </div>
-
     <div class="scenario">
       <div class="scenario-label">Real situation</div>
       <p>You're in your final year and have no idea whether to apply for a PGWP, look for a co-op, or start building credit. You've heard conflicting advice from classmates. <strong>Blink cuts through the noise and maps out your actual options based on your specific situation.</strong></p>
     </div>
-
     <div class="before-after">
       <div class="ba-card before">
         <div class="ba-label">✕ Without Blink</div>
-        <ul>
-          <li>Missing deadlines for permits or applications</li>
-          <li>Unaware of work rights on a student visa</li>
-          <li>No plan for the transition after graduation</li>
-          <li>Relying on rumours from other students</li>
-        </ul>
+        <ul><li>Missing deadlines for permits or applications</li><li>Unaware of work rights on a student visa</li><li>No plan for the transition after graduation</li><li>Relying on rumours from other students</li></ul>
       </div>
       <div class="ba-card after">
         <div class="ba-label">✓ With Blink</div>
-        <ul>
-          <li>Clear timeline for permits, applications & transitions</li>
-          <li>Know exactly what you can and can't do on your status</li>
-          <li>Post-graduation roadmap tailored to your goals</li>
-          <li>Verified information from reliable sources</li>
-        </ul>
+        <ul><li>Clear timeline for permits, applications & transitions</li><li>Know exactly what you can and can't do on your status</li><li>Post-graduation roadmap tailored to your goals</li><li>Verified information from reliable sources</li></ul>
       </div>
     </div>
-
     <div class="what-blink">
       <h3>What Blink does for you</h3>
-      <ul class="checklist">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Study permit rules, renewals & work eligibility</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>PGWP & post-graduation pathways explained</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Resume, LinkedIn & Canadian job market prep</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Credit building & financial foundations</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Co-op, internship & networking strategy</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Student budgeting & housing navigation</li>
-      </ul>
+      <ul class="checklist"><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Study permit rules, renewals & work eligibility</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>PGWP & post-graduation pathways explained</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Resume, LinkedIn & Canadian job market prep</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Credit building & financial foundations</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Co-op, internship & networking strategy</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Student budgeting & housing navigation</li></ul>
     </div>
-
     <div class="section-cta">
       <p>Not sure what your options look like after graduation?</p>
       <a href="https://calendar.app.google/meFkCGhQv7YDMpo87/">Let's map it out →</a>
     </div>
   </div>
 </section>
-
-<!-- LOCALS -->
 <section class="section" id="locals">
   <div class="section-inner">
     <div class="section-header">
@@ -404,53 +177,30 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
       <h2>Already settled —<br/><em>but still figuring things out.</em></h2>
       <p>Being Canadian-born or long-term settled doesn't mean every system makes sense. Whether it's finances, career pivots, or life transitions — Blink helps you take your next step with clarity.</p>
     </div>
-
     <div class="scenario">
       <div class="scenario-label">Real situation</div>
       <p>You've been in the same job for years and want to pivot careers, but don't know where to start — upgrading credentials, updating your resume, or figuring out if you even qualify for EI while you transition. <strong>Blink helps you understand all your options before you make a move.</strong></p>
     </div>
-
     <div class="before-after">
       <div class="ba-card before">
         <div class="ba-label">✕ Without Blink</div>
-        <ul>
-          <li>Paralysed by too many options and not enough clarity</li>
-          <li>Making financial decisions without full information</li>
-          <li>Missing programs or benefits you're entitled to</li>
-          <li>Wasting time on the wrong path</li>
-        </ul>
+        <ul><li>Paralysed by too many options and not enough clarity</li><li>Making financial decisions without full information</li><li>Missing programs or benefits you're entitled to</li><li>Wasting time on the wrong path</li></ul>
       </div>
       <div class="ba-card after">
         <div class="ba-label">✓ With Blink</div>
-        <ul>
-          <li>Clear picture of your options and trade-offs</li>
-          <li>Know which government programs apply to you</li>
-          <li>Actionable steps tailored to your situation</li>
-          <li>Confidence to make the right move at the right time</li>
-        </ul>
+        <ul><li>Clear picture of your options and trade-offs</li><li>Know which government programs apply to you</li><li>Actionable steps tailored to your situation</li><li>Confidence to make the right move at the right time</li></ul>
       </div>
     </div>
-
     <div class="what-blink">
       <h3>What Blink does for you</h3>
-      <ul class="checklist">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Career transition planning & credential guidance</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>EI, CERB & government benefit navigation</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Personal finance organisation & goal setting</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Housing — buying, renting, or refinancing guidance</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Life admin clarity — insurance, documents, services</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Identifying the right professionals for your next step</li>
-      </ul>
+      <ul class="checklist"><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Career transition planning & credential guidance</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>EI, CERB & government benefit navigation</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Personal finance organisation & goal setting</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Housing — buying, renting, or refinancing guidance</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Life admin clarity — insurance, documents, services</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Identifying the right professionals for your next step</li></ul>
     </div>
-
     <div class="section-cta">
       <p>Stuck at a crossroads and not sure which direction to take?</p>
       <a href="https://calendar.app.google/meFkCGhQv7YDMpo87/">Talk to Blink →</a>
     </div>
   </div>
 </section>
-
-<!-- WORKERS -->
 <section class="section" id="workers">
   <div class="section-inner">
     <div class="section-header">
@@ -458,53 +208,30 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
       <h2>Working in Canada —<br/><em>knowing your rights changes everything.</em></h2>
       <p>Whether you're on a work permit, navigating a new industry, or trying to grow professionally in Canada, understanding the rules gives you a serious advantage. Blink makes sure you have that understanding.</p>
     </div>
-
     <div class="scenario">
       <div class="scenario-label">Real situation</div>
       <p>You're on an employer-specific work permit and your employer is treating you unfairly. You don't know if you can change jobs, what your rights are, or who to talk to without risking your status. <strong>Blink helps you understand exactly where you stand and what your options are.</strong></p>
     </div>
-
     <div class="before-after">
       <div class="ba-card before">
         <div class="ba-label">✕ Without Blink</div>
-        <ul>
-          <li>Unaware of your workplace rights in Canada</li>
-          <li>Afraid to speak up or change jobs due to permit concerns</li>
-          <li>Not knowing how to transition to a better opportunity</li>
-          <li>Missing pathways to permanent residency through work</li>
-        </ul>
+        <ul><li>Unaware of your workplace rights in Canada</li><li>Afraid to speak up or change jobs due to permit concerns</li><li>Not knowing how to transition to a better opportunity</li><li>Missing pathways to permanent residency through work</li></ul>
       </div>
       <div class="ba-card after">
         <div class="ba-label">✓ With Blink</div>
-        <ul>
-          <li>Clear understanding of your rights as a worker</li>
-          <li>Know your options for changing employers or roles</li>
-          <li>Strategy for professional growth and credential recognition</li>
-          <li>Awareness of PR pathways tied to your work experience</li>
-        </ul>
+        <ul><li>Clear understanding of your rights as a worker</li><li>Know your options for changing employers or roles</li><li>Strategy for professional growth and credential recognition</li><li>Awareness of PR pathways tied to your work experience</li></ul>
       </div>
     </div>
-
     <div class="what-blink">
       <h3>What Blink does for you</h3>
-      <ul class="checklist">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Work permit types, conditions & change of employer</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Canadian workplace rights & labour standards</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Foreign credential recognition pathways</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Resume & LinkedIn for the Canadian job market</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>PR pathways through Express Entry & PNP</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Self-employment & contractor setup in Canada</li>
-      </ul>
+      <ul class="checklist"><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Work permit types, conditions & change of employer</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Canadian workplace rights & labour standards</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Foreign credential recognition pathways</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Resume & LinkedIn for the Canadian job market</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>PR pathways through Express Entry & PNP</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Self-employment & contractor setup in Canada</li></ul>
     </div>
-
     <div class="section-cta">
       <p>Want to make the most of your time working in Canada?</p>
       <a href="https://calendar.app.google/meFkCGhQv7YDMpo87/">Let's talk →</a>
     </div>
   </div>
 </section>
-
-<!-- YOUTH -->
 <section class="section" id="youth">
   <div class="section-inner">
     <div class="section-header">
@@ -512,53 +239,30 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
       <h2>Starting out —<br/><em>and building the right foundations.</em></h2>
       <p>Your late teens and early twenties set the foundation for everything that follows. Blink helps young people understand the systems they're entering — so they start strong instead of spending years catching up.</p>
     </div>
-
     <div class="scenario">
       <div class="scenario-label">Real situation</div>
       <p>You're 19, just finished high school, and have no idea whether to go to college, start working, or travel. You don't know how OSAP works, what a credit score is, or how taxes apply to you. <strong>Blink gives you a clear-eyed overview of your options so you can make an informed decision — not just follow the crowd.</strong></p>
     </div>
-
     <div class="before-after">
       <div class="ba-card before">
         <div class="ba-label">✕ Without Blink</div>
-        <ul>
-          <li>Making big decisions based on limited information</li>
-          <li>No credit history, no financial literacy foundation</li>
-          <li>Overwhelmed by adult systems nobody explained</li>
-          <li>Starting behind because of early missteps</li>
-        </ul>
+        <ul><li>Making big decisions based on limited information</li><li>No credit history, no financial literacy foundation</li><li>Overwhelmed by adult systems nobody explained</li><li>Starting behind because of early missteps</li></ul>
       </div>
       <div class="ba-card after">
         <div class="ba-label">✓ With Blink</div>
-        <ul>
-          <li>Understand your education & career options clearly</li>
-          <li>Start building credit and good financial habits early</li>
-          <li>Know how taxes, benefits, and services work for you</li>
-          <li>Confidence to take your first steps independently</li>
-        </ul>
+        <ul><li>Understand your education & career options clearly</li><li>Start building credit and good financial habits early</li><li>Know how taxes, benefits, and services work for you</li><li>Confidence to take your first steps independently</li></ul>
       </div>
     </div>
-
     <div class="what-blink">
       <h3>What Blink does for you</h3>
-      <ul class="checklist">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Post-secondary options, OSAP & student loans explained</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Credit score basics & how to start building one</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Filing taxes for the first time</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>First job, first apartment & renter's rights</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Youth government programs & grants</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Career direction & goal-setting session</li>
-      </ul>
+      <ul class="checklist"><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Post-secondary options, OSAP & student loans explained</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Credit score basics & how to start building one</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Filing taxes for the first time</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>First job, first apartment & renter's rights</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Youth government programs & grants</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Career direction & goal-setting session</li></ul>
     </div>
-
     <div class="section-cta">
       <p>Starting out and want to get it right from the beginning?</p>
       <a href="https://calendar.app.google/meFkCGhQv7YDMpo87/">Start here →</a>
     </div>
   </div>
 </section>
-
-<!-- SENIORS -->
 <section class="section" id="seniors">
   <div class="section-inner">
     <div class="section-header">
@@ -566,54 +270,30 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
       <h2>Systems change.<br/><em>You shouldn't have to figure it out alone.</em></h2>
       <p>Government programs, digital services, and benefit systems have become increasingly complex. Blink helps seniors and their families navigate these systems with patience, clarity, and no judgement.</p>
     </div>
-
     <div class="scenario">
       <div class="scenario-label">Real situation</div>
       <p>You're 68 and recently retired. You're not sure what CPP and OAS you're entitled to, whether you should take it now or defer, and how it interacts with your pension. Nobody has explained it in plain language. <strong>Blink sits with you and breaks it all down clearly — no jargon, no rush.</strong></p>
     </div>
-
     <div class="before-after">
       <div class="ba-card before">
         <div class="ba-label">✕ Without Blink</div>
-        <ul>
-          <li>Leaving money on the table by not claiming entitlements</li>
-          <li>Struggling with digital government portals alone</li>
-          <li>Unsure which services and benefits apply to you</li>
-          <li>Family members overwhelmed trying to help</li>
-        </ul>
+        <ul><li>Leaving money on the table by not claiming entitlements</li><li>Struggling with digital government portals alone</li><li>Unsure which services and benefits apply to you</li><li>Family members overwhelmed trying to help</li></ul>
       </div>
       <div class="ba-card after">
         <div class="ba-label">✓ With Blink</div>
-        <ul>
-          <li>Full picture of CPP, OAS, GIS & pension entitlements</li>
-          <li>Step-by-step help with government portals and forms</li>
-          <li>Know every senior benefit and program available to you</li>
-          <li>Peace of mind for you and your family</li>
-        </ul>
+        <ul><li>Full picture of CPP, OAS, GIS & pension entitlements</li><li>Step-by-step help with government portals and forms</li><li>Know every senior benefit and program available to you</li><li>Peace of mind for you and your family</li></ul>
       </div>
     </div>
-
     <div class="what-blink">
       <h3>What Blink does for you</h3>
-      <ul class="checklist">
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>CPP, OAS & GIS — eligibility, timing & maximising benefits</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Provincial senior programs & drug benefit plans</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>My Service Canada & CRA My Account navigation</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Housing options — downsizing, assisted living guidance</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Caregiver resources & family support navigation</li>
-        <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Digital literacy & online services assistance</li>
-      </ul>
+      <ul class="checklist"><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>CPP, OAS & GIS — eligibility, timing & maximising benefits</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Provincial senior programs & drug benefit plans</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>My Service Canada & CRA My Account navigation</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Housing options — downsizing, assisted living guidance</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Caregiver resources & family support navigation</li><li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Digital literacy & online services assistance</li></ul>
     </div>
-
     <div class="section-cta">
       <p>Want a calm, patient session to sort through what applies to you?</p>
       <a href="https://calendar.app.google/meFkCGhQv7YDMpo87/">Book a session →</a>
     </div>
   </div>
 </section>
-
-
-<!-- NOT SURE -->
 <section class="section" id="everyone">
   <div class="section-inner">
     <div class="section-header">
@@ -621,12 +301,10 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
       <h2>You don't need a label<br/><em>to need clarity.</em></h2>
       <p>Not everyone's situation fits neatly into a box — and Blink was built with that in mind. If you're facing a decision, feeling stuck, or simply don't know where to start, that's enough of a reason to reach out.</p>
     </div>
-
     <div class="scenario">
       <div class="scenario-label">Real situation</div>
       <p>You're 35, been in Canada for a few years, not a student, not a newcomer, not a senior — but you're facing a complicated mix of financial stress, a career decision, and a housing question all at once and have no idea who to talk to. <strong>Blink is exactly for this. We don't need your situation to fit a template — we work with whatever you bring.</strong></p>
     </div>
-
     <div class="before-after">
       <div class="ba-card before">
         <div class="ba-label">✕ The problem</div>
@@ -647,7 +325,6 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
         </ul>
       </div>
     </div>
-
     <div class="what-blink">
       <h3>What a session looks like for you</h3>
       <ul class="checklist">
@@ -659,7 +336,6 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
         <li><span class="check"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2C6AC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Follow-up support if your situation evolves</li>
       </ul>
     </div>
-
     <div class="section-cta">
       <p>Not sure what you need? That's the perfect place to start.</p>
       <a href="https://calendar.app.google/meFkCGhQv7YDMpo87/">Book a Free Consultation →</a>
@@ -667,7 +343,6 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
   </div>
 </section>
 
-<!-- CLOSING CTA -->
 <section class="closing">
   <div class="closing-inner">
     <h2>Not sure which category fits you?</h2>
@@ -680,22 +355,18 @@ body{font-family:"Inter",sans-serif;background:var(--bg);color:var(--ink);-webki
 </section>
 
 <script>
-  // Highlight active tab on scroll
   const sections = document.querySelectorAll('.section[id]');
   const tabs = document.querySelectorAll('.tab');
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         tabs.forEach(t => t.classList.remove('active'));
-        const active = document.querySelector(`.tab[href="#${entry.target.id}"]`);
+        const active = document.querySelector('.tab[href="#' + entry.target.id + '"]');
         if (active) active.classList.add('active');
       }
     });
   }, { threshold: 0.3 });
-
   sections.forEach(s => observer.observe(s));
 </script>
-
 </body>
 </html>
